@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Student Management System</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#dashboard" class="active">Dashboard</a></li>
+            <li><a href="#students">Students</a></li>
+            <li><a href="#attendance">Attendance</a></li>
+            <li><a href="#grades">Grades</a></li>
+            <li><a href="#reports">Reports</a></li>
+        </ul>
+        <div class="user-profile">
+            <i class="fas fa-user-circle"></i>
+            <span>Admin</span>
+        </div>
+    </nav>
+
+    <main>
+        <section id="dashboard" class="dashboard">
+            <h2>Dashboard</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Total Students</h3>
+                    <p>0</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Total Teachers</h3>
+                    <p>45</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Total Courses</h3>
+                    <p>28</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Attendance Rate</h3>
+                    <p>0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="students" class="students">
+            <h2>Student Management</h2>
+            <div class="action-buttons">
+                <button class="btn primary" onclick="showAddStudentModal()">
+                    <i class="fas fa-plus"></i> Add New Student
+                </button>
+                <button class="btn secondary">
+                    <i class="fas fa-file-import"></i> Import Students
+                </button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search students...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="students-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Student rows will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="attendance" class="attendance">
+            <h2>Attendance Management</h2>
+            <div class="attendance-controls">
+                <div class="date-picker">
+                    <input type="date" id="attendance-date">
+                </div>
+                <div class="class-selector">
+                    <select id="class-select">
+                        <option value="">Select Class</option>
+                        <option value="1A">Class 1A</option>
+                        <option value="1B">Class 1B</option>
+                        <option value="2A">Class 2A</option>
+                        <option value="2B">Class 2B</option>
+                        <option value="3A">Class 3A</option>
+                        <option value="3B">Class 3B</option>
+                        <option value="4A">Class 4A</option>
+                        <option value="4B">Class 4B</option>
+                        <option value="5A">Class 5A</option>
+                        <option value="5B">Class 5B</option>
+                        <option value="6A">Class 6A</option>
+                        <option value="6B">Class 6B</option>
+                        <option value="7A">Class 7A</option>
+                        <option value="7B">Class 7B</option>
+                        <option value="8A">Class 8A</option>
+                        <option value="8B">Class 8B</option>
+                        <option value="9A">Class 9A</option>
+                        <option value="9B">Class 9B</option>
+                        <option value="10A">Class 10A</option>
+                        <option value="10B">Class 10B</option>
+                        <option value="11A">Class 11A</option>
+                        <option value="11B">Class 11B</option>
+                        <option value="12A">Class 12A</option>
+                        <option value="12B">Class 12B</option>
+                    </select>
+                </div>
+            </div>
+            <div class="attendance-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Attendance records will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="grades" class="grades">
+            <h2>Grade Management</h2>
+            <div class="grade-controls">
+                <select id="subject-select">
+                    <option value="">Select Subject</option>
+                    <option value="math">Mathematics</option>
+                    <option value="science">Science</option>
+                    <option value="english">English</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="biology">Biology</option>
+                    <option value="history">History</option>
+                    <option value="geography">Geography</option>
+                    <option value="computer_science">Computer Science</option>
+                    <option value="economics">Economics</option>
+                    <option value="business_studies">Business Studies</option>
+                    <option value="art">Art</option>
+                    <option value="physical_education">Physical Education</option>
+                </select>
+                <select id="exam-type">
+                    <option value="">Select Exam Type</option>
+                    <option value="midterm">Mid Term</option>
+                    <option value="final">Final</option>
+                </select>
+            </div>
+            <div class="grades-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Marks</th>
+                            <th>Grade</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Grade records will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for adding new student -->
+    <div id="addStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Student</h2>
+            <form id="addStudentForm">
+                <div class="form-group">
+                    <label for="studentName">Full Name</label>
+                    <input type="text" id="studentName" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentClass">Class</label>
+                    <select id="studentClass" required>
+                        <option value="">Select Class</option>
+                        <option value="1A">Class 1A</option>
+                        <option value="1B">Class 1B</option>
+                        <option value="2A">Class 2A</option>
+                        <option value="2B">Class 2B</option>
+                        <option value="3A">Class 3A</option>
+                        <option value="3B">Class 3B</option>
+                        <option value="4A">Class 4A</option>
+                        <option value="4B">Class 4B</option>
+                        <option value="5A">Class 5A</option>
+                        <option value="5B">Class 5B</option>
+                        <option value="6A">Class 6A</option>
+                        <option value="6B">Class 6B</option>
+                        <option value="7A">Class 7A</option>
+                        <option value="7B">Class 7B</option>
+                        <option value="8A">Class 8A</option>
+                        <option value="8B">Class 8B</option>
+                        <option value="9A">Class 9A</option>
+                        <option value="9B">Class 9B</option>
+                        <option value="10A">Class 10A</option>
+                        <option value="10B">Class 10B</option>
+                        <option value="11A">Class 11A</option>
+                        <option value="11B">Class 11B</option>
+                        <option value="12A">Class 12A</option>
+                        <option value="12B">Class 12B</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="studentEmail">Email</label>
+                    <input type="email" id="studentEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentPhone">Phone</label>
+                    <input type="tel" id="studentPhone" required>
+                </div>
+                <button type="submit" class="btn primary">Add Student</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
